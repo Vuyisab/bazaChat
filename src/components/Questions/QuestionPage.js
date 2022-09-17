@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Side } from "../Side/Side";
 import { selectQuestions } from "../../containers/Forums/ForumsSlice";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import "./QuestionPage.css";
 
 export const QuestionPage = () => {
@@ -22,7 +23,12 @@ export const QuestionPage = () => {
     users,
     likes,
   } = data[index];
-  console.log(name);
+  //console.log(name);
+  const history = useHistory();
+  
+  const handleReply = (e)=>{
+    history.push(`/forums/${id}/3`);
+  }
 
   return (
     <section id="forums">
@@ -38,7 +44,7 @@ export const QuestionPage = () => {
         <p id="body">{body}</p>
         <p className="reply">
           <span class="material-symbols-outlined up yeah">thumb_up</span>
-          <div className="yeah reply">
+          <div className="yeah reply" id="yeah" onClick={handleReply}>
             <span class="material-symbols-outlined">reply </span>
             <span>Reply</span>
           </div>

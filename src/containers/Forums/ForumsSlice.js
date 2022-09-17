@@ -34,6 +34,21 @@ export const forumsSlice = createSlice({
         activity: 8,
         users:[],
       },
+      {
+        id: 3,
+        name: "Ayabonga Baza",
+        title:
+          "Whats the different between two (`==`) and three (`===`) equal signs?",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer enim neque volutpat. Vestibulum lectus mauris ultrices eros. Maecenas volutpat blandit aliquam etiam. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim. Eleifend quam adipiscing vitae proin. Lectus sit amet est placerat in egestas. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Interdum varius sit amet mattis vulputate enim",
+        language: "Javascript",
+        category: "conditionals",
+        replies: 0,
+        lastReply:0,
+        likes:0,
+        views: 0,
+        activity: 8,
+        users:[],
+      },
     ],
   },
 

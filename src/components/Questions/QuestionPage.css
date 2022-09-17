@@ -62,6 +62,7 @@
     cursor: pointer;
     align-items: center;
     padding-right: 0.5rem;
+    
 }
 
 #forums .reply .up{
@@ -71,6 +72,10 @@
 
 #forums .yeah:hover{
     color: purple;
+}
+
+#yeah{
+    border: 1px solid red;
 }
 
 .thelabels{

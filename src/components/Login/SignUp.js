@@ -1,8 +1,9 @@
 import React from "react";
 import "./Login.css";
 import { useSelector,useDispatch } from "react-redux";
-import { selectName,selectSurname,selectDob,selectEmail,selectPassword } from "./SignUpSlice";
-import { addFirstName,addLastName,addDob,addEmail,addPassword } from "./SignUpSlice";
+import { selectName,selectSurname,selectDob,selectEmail,selectPassword,selectAllow } from "./SignUpSlice";
+import { addFirstName,addLastName,addDob,addEmail,addPassword,logIn } from "./SignUpSlice";
+import { useHistory } from "react-router-dom";
 
 export const SignUpForm = ()=>{
     const dispatch = useDispatch();
@@ -11,6 +12,8 @@ export const SignUpForm = ()=>{
     const dob = useSelector(selectDob);
     const email = useSelector(selectDob);
     const password = useSelector(selectPassword);
+    const allow = useSelector(selectAllow);
+    const history = useHistory();
 
     const handleName = ({target})=>{
         const name = target.value;
@@ -27,9 +30,28 @@ export const SignUpForm = ()=>{
         dispatch(addDob(dob));
     }
 
+    const handleEmail = ({target})=>{
+      const email = target.value;
+      dispatch(addEmail(email));
+    }
+
+    const handlePassword = ({target})=>{
+      const password = target.value;
+      dispatch(addPassword(password));
+    }
+
+    const handleSubmit = (e)=>{
+      e.preventDefault();
+      dispatch(logIn())
+    }
+
+    
+    if(allow){
+      history.push("/feed");
+    }
     return(
     <section className="Form">
-      <form >
+      <form onSubmit={handleSubmit}>
         <legend className="titale">Sign Up</legend>
         <fieldset id="name">
           <legend>First name</legend>
@@ -38,7 +60,7 @@ export const SignUpForm = ()=>{
             type="text"
             name="firstname"
             placeholder="First name"
-            
+            onChange={handleName}
           />
         </fieldset>
         <br />
@@ -49,7 +71,7 @@ export const SignUpForm = ()=>{
             type="text"
             name="lastname"
             placeholder="Last name"
-            
+            onChange={handleSurname}
           />
         </fieldset>
         <br />
@@ -60,7 +82,7 @@ export const SignUpForm = ()=>{
             type="date"
             name="dob"
             placeholder="DD/MM/YYYY"
-            
+            onChange={handleDOB}
           />
         </fieldset>
         <br />
@@ -71,7 +93,7 @@ export const SignUpForm = ()=>{
             type="email"
             name="email"
             placeholder="Email Address"
-            
+            onChange={handleEmail}
           />
         </fieldset>
         <br />
@@ -82,7 +104,7 @@ export const SignUpForm = ()=>{
             type="password"
             name="password"
             placeholder="Enter your password"
-            
+            onChange={handlePassword}
           />
         </fieldset>
         <br />

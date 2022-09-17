@@ -6,6 +6,7 @@ import { Header } from "./components/Header/Header";
 import { Feed } from "./containers/Feed/Feed";
 import { Home } from "./components/Home/Home";
 import { QuestionPage } from "./components/Questions/QuestionPage";
+import { replyForm } from "./components/Questions/ReplyForm";
 import {
   BrowserRouter as Router,
   Route,
@@ -51,10 +52,13 @@ function App() {
         <Route exact path="/forums/:id">
           <QuestionPage />
         </Route>
+        <Route exact path="/forums/:qid/:rid">
+          <replyForm/>
+        </Route>
         <Route exact path="/forums">
           <Forums />
         </Route>
-
+        
       <footer>
         <p>BazaTech&copy;</p>
         <p>BazaChat&trade;</p>
