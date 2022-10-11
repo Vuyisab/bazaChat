@@ -6,7 +6,8 @@ import { Header } from "./components/Header/Header";
 import { Feed } from "./containers/Feed/Feed";
 import { Home } from "./components/Home/Home";
 import { QuestionPage } from "./components/Questions/QuestionPage";
-import { replyForm } from "./components/Questions/ReplyForm";
+import { QuestionForm } from "./containers/Forums/Questions/NewQuestion";
+import { ReplyForm } from "./components/Replies/Reply";
 import {
   BrowserRouter as Router,
   Route,
@@ -58,7 +59,13 @@ function App() {
         <Route exact path="/forums">
           <Forums />
         </Route>
-        
+        <Route exact path="/quest">
+          <QuestionForm/>
+        </Route>
+        <Route exact path="/reply/:id/:title">
+          <ReplyForm/>
+        </Route>
+
       <footer>
         <p>BazaTech&copy;</p>
         <p>BazaChat&trade;</p>
